@@ -1,25 +1,29 @@
 Summary:	Compiler for psyc LPC
+Summary(pl.UTF-8):	Kompilator dla psyc LPC
 Name:		psyclpc
-Version:	20090321
+Version:	20111122
 Release:	1
 License:	GPL v2
 Group:		Networking/Daemons
-Source0:	http://www.psyced.org/files/psyclpc-20090321.tar.bz2
-# Source0-md5:	96b365e2d89942b086138b29693e191c
+Source0:	http://www.psyced.org/files/%{name}-%{version}.tar.bz2
+# Source0-md5:	defb6e3a4e26ed20b2c4f0e9448054b3
 URL:		http://www.psyced.org
-Patch0:	%{name}-doc-install.patch
+#Patch0: %{name}-doc-install.patch
+BuildRequires:	help2man
 BuildRequires:	mysql-devel
 BuildRequires:	postgresql-devel
-BuildRequires: 	help2man
-BuildRequires: 	sqlite3-devel
+BuildRequires:	sqlite3-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Compiler for the psyc variant of LPC.
 
+%description -l pl.UTF-8
+Kompilator dla wariantów psyc dla LPC.
+
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{name}
+#%patch0 -p1
 
 %build
 cd src
@@ -49,4 +53,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%_mandir/man1/*
+%{_mandir}/man1/*
