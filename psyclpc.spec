@@ -23,7 +23,7 @@ Kompilator dla wariantów psyc dla LPC.
 
 %prep
 %setup -q -n %{name}
-#%patch0 -p1
+#%%patch0 -p1
 
 %build
 cd src
